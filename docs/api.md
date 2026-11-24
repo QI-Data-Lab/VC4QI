@@ -82,7 +82,7 @@ console.log(result.decision); // 'accept' for x = 178
 0.4.0 removes the v0.3 policy-resolved graph verifier (`verifyCredentialGraph`, the
 `legacy` namespace), its policies, contexts, schemas and fixtures, presentation-query
 helpers, verifier assessments and the `ecdsa-sd-2023` selective-disclosure path. They
-remain available at tag [`v0.3.0`](https://github.com/monavari/VC4QI/tree/v0.3.0).
+remain available at tag [`v0.3.0`](https://github.com/QI-Data-Lab/VC4QI/tree/v0.3.0).
 
 | 0.3.0 | 0.4.0 |
 | --- | --- |

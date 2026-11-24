@@ -22,8 +22,8 @@ import { citationFrom, squash } from './citation.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
 const OUT = CHECK ? mkdtempSync(join(tmpdir(), 'vc4qi-site-')) : join(ROOT, '_site');
-const REPO = 'https://github.com/monavari/VC4QI';
-const SITE = 'https://monavari.github.io/VC4QI/';
+const REPO = 'https://github.com/QI-Data-Lab/VC4QI';
+const SITE = 'https://qi-data-lab.github.io/VC4QI/';
 const OG_IMAGE = `${SITE}assets/og-card.png`;
 
 /** Published pages, in navigation order. Paths are repository-relative. */

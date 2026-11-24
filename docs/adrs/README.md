@@ -13,4 +13,4 @@ Architecture Decision Records (ADRs) keep the reasoning behind major choices.
 
 ADRs 002, 004, 005, 006 (evidence graph), 007, 008 and 009 described the v0.1–v0.3
 models and were superseded by ADR-010. They were removed in v0.4 and remain in the
-repository at tag [`v0.3.0`](https://github.com/monavari/VC4QI/tree/v0.3.0/docs/adrs).
+repository at tag [`v0.3.0`](https://github.com/QI-Data-Lab/VC4QI/tree/v0.3.0/docs/adrs).

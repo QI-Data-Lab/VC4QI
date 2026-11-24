@@ -4,7 +4,7 @@ This page is the normative model of VC4QI: what a verifier must check before it 
 on a Quality Infrastructure (QI) credential. The new evaluator implements it for the
 three experimental bindings (reference material, calibration and GS certification);
 see [API](api.md) and [status](status.md). The superseded v0.3 graph model is at tag
-[`v0.3.0`](https://github.com/monavari/VC4QI/tree/v0.3.0).
+[`v0.3.0`](https://github.com/QI-Data-Lab/VC4QI/tree/v0.3.0).
 
 ## 1. Thesis
 

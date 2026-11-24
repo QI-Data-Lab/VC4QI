@@ -26,19 +26,19 @@ the design is as it is.
 
 ## Try it
 
-The [demonstrator](https://monavari.github.io/VC4QI/demo/) runs the repository's
+The [demonstrator](https://qi-data-lab.github.io/VC4QI/demo/) runs the repository's
 evaluators in your browser on signed test credentials. Its overview page explains each
 demo and links to it. The
-[examples page](https://monavari.github.io/VC4QI/demo/examples/#rm) offers four examples: a
+[examples page](https://qi-data-lab.github.io/VC4QI/demo/examples/#rm) offers four examples: a
 reference material (RM), calibration certificates (DCC), a GS certificate and an
-experimental product passport (DPP). The [RM story](https://monavari.github.io/VC4QI/demo/rm/) opens with one credential and
+experimental product passport (DPP). The [RM story](https://qi-data-lab.github.io/VC4QI/demo/rm/) opens with one credential and
 its links, builds the chain by five issuer rules in lanes of authority, introduces the
 verifier's profile and its six checks, then plays scenarios grouped by the question the
 verifier asks; an explainer opens for each credential, link and check. The
-[GS story](https://monavari.github.io/VC4QI/demo/gs/) puts the GS chain on an actor board,
+[GS story](https://qi-data-lab.github.io/VC4QI/demo/gs/) puts the GS chain on an actor board,
 one column per party, where the national accreditation body can revoke and the verifier's
 own profile decides. The source is on
-[GitHub](https://github.com/monavari/VC4QI); contribution rules are in
+[GitHub](https://github.com/QI-Data-Lab/VC4QI); contribution rules are in
 [CONTRIBUTING](../CONTRIBUTING.md).
 
 Code is licensed under Apache-2.0 and documentation under CC BY 4.0. All authorities,

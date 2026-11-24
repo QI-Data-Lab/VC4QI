@@ -1,24 +1,83 @@
 # VC4QI
 
-**Verifiable Credentials for Quality Infrastructure.** A research reference
-implementation for deciding what a verifier may rely on when it receives
-accreditation, calibration, reference-material or certification credentials.
+**Verifiable Credentials for Quality Infrastructure** is research software for a
+practical question: when a verifier receives a credential, what evidence justifies
+relying on it?
 
-[![CI](https://github.com/monavari/VC4QI/actions/workflows/ci.yml/badge.svg)](https://github.com/monavari/VC4QI/actions/workflows/ci.yml)
+[![CI](https://github.com/QI-Data-Lab/VC4QI/actions/workflows/ci.yml/badge.svg)](https://github.com/QI-Data-Lab/VC4QI/actions/workflows/ci.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
-- **Website and documentation:** <https://monavari.github.io/VC4QI/>
-- **Demonstrator (RM · DCC · GS · DPP):** <https://monavari.github.io/VC4QI/demo/>,
-  the RM story, its chain top to bottom with an explainer and scenarios grouped by the
-  verifier's question: <https://monavari.github.io/VC4QI/demo/rm/>, and the GS story on
-  an actor board: <https://monavari.github.io/VC4QI/demo/gs/>
+> **Try it:** [Open the browser demonstrator](https://qi-data-lab.github.io/VC4QI/demo/) ·
+> [Follow the reference-material story](https://qi-data-lab.github.io/VC4QI/demo/rm/) ·
+> [Browse four worked examples](https://qi-data-lab.github.io/VC4QI/demo/examples/) ·
+> [Read the project overview](https://qi-data-lab.github.io/VC4QI/)
+
+The demonstrator runs the repository's evaluator in your browser using signed test
+credentials. Nothing is fetched from a server. Authorities, keys and grants in the
+examples are fictional; they do not claim real accreditation or external endorsement.
+
+## Explore the demonstrator
+
+| Start here | What you can explore |
+| --- | --- |
+| [**Reference-material story**](https://qi-data-lab.github.io/VC4QI/demo/rm/) | Follow a certified arsenic value through its chain of authority, then test how trust, status, scope and conformity affect the verifier's decision. |
+| [**Four worked examples**](https://qi-data-lab.github.io/VC4QI/demo/examples/) | Compare reference material, calibration certificates, a GS mark and an experimental product passport. Change the verifier's trust settings or test altered and missing evidence. |
+| [**GS certification story**](https://qi-data-lab.github.io/VC4QI/demo/gs/) | Explore the product-safety credential chain on an actor board, with scenarios involving revocation, withdrawal and changed product data. |
+
+Each answer is **established**, **contradicted** or **not established**. Missing or
+unsupported evidence never counts as a pass. The verifier chooses the profile and trust
+anchors; a credential does not create its issuer's authority.
+
+## What the project provides
+
+- A standards-first reliance evaluator for reference-material, calibration and GS
+  certification bindings.
+- A canonical TypeScript implementation and a Python mirror, exercised against signed
+  fixtures and shared semantics.
+- A browser demonstrator using the same evaluator, including DPP examples.
+- Documentation of the reliance model, credential bindings, API and known limitations.
+
+This is a research reference implementation, not a verifier service or trust registry.
+See [current status and limitations](docs/status.md) for what is implemented.
+
+## Find your way around
+
+| I want to... | Go to |
+| --- | --- |
+| Understand the reliance rules | [Reliance model](docs/model.md) |
+| Read the scenarios | [Use cases](docs/use-cases.md) |
+| Check implementation status and open limitations | [Status](docs/status.md) |
+| Use the evaluator API | [API](docs/api.md) |
+| See how credential families are interpreted | [Bindings](docs/bindings.md) |
+| Navigate the source and evaluator design | [Architecture](docs/architecture.md) |
+| Start with the documentation guide | [Documentation index](docs/index.md) |
+| Contribute or run project checks | [Contribution guide](CONTRIBUTING.md) |
+
+The [acceptance ledger](docs/acceptance-ledger.csv) records expected outcomes and
+evidence. The [architecture decisions](docs/adrs/README.md) explain key design choices.
+
+## Run locally
+
+Install Node 20, pnpm 10.15.1, Python 3.12 and uv 0.12.17, then install dependencies
+and run the core checks:
+
+```bash
+pnpm install --frozen-lockfile
+uv sync --locked --all-packages --extra dev
+pnpm -r build
+pnpm -C packages/core-ts test
+uv run --locked --all-packages --extra dev pytest packages/core-py/tests
+```
+
+To build the demonstrator, run `pnpm -C apps/demonstrator build`. To build the complete
+site locally, run `pnpm docs:build` and open `_site/demo/index.html`. See
+[CONTRIBUTING](CONTRIBUTING.md) for all checks and repository guidance.
 
 ## Attribution and citation
 
 VC4QI was created by **Mehran Monavari**. If you use it in a publication, please cite
-both the paper and the software. The metadata is in [CITATION.cff](CITATION.cff);
-GitHub's "Cite this repository" button reads it but shows only the paper, so both
-references are given here.
+both the associated paper and the software. Citation formats and BibTeX are on the
+[Cite page](https://qi-data-lab.github.io/VC4QI/docs/cite.html) and in [CITATION.cff](CITATION.cff).
 
 ### Paper
 
@@ -34,6 +93,9 @@ The venue and DOI will be added when they are available.
 
 To cite the latest version instead of 0.4.0, use the concept DOI
 <https://doi.org/10.5281/zenodo.20612364>.
+
+<details>
+<summary>Copyable BibTeX for both citations</summary>
 
 ```bibtex
 @unpublished{monavari2026trustchains,
@@ -55,67 +117,13 @@ To cite the latest version instead of 0.4.0, use the concept DOI
 }
 ```
 
+</details>
+
 Authorship and copyright are separate: Mehran Monavari is the sole author, and the
-copyright notice reads "VC4QI Contributors" (see [NOTICE](NOTICE)). Citation is requested, not required by the licenses. Under
-Apache-2.0, section 4(d), anyone who redistributes the code keeps the attribution
-notices in [NOTICE](NOTICE), and CC BY 4.0 requires credit when the documentation is
-reused.
-
-## The idea
-
-Credentials represent institutional authority and evidence; they do not create it. The
-verifier selects a profile, and the evaluator answers each question separately: is the
-credential authentic and current, is the issuer authorized for this exact claim, is the
-required support in place, and does the value meet the verifier's own requirement? Each
-answer is *established*, *contradicted* or *not established*, and "cannot tell" never
-counts as yes.
-
-In the fictional reference-material example, an arsenic value of 178 mg/kg is accepted,
-197 mg/kg is authorized but fails the verifier's limit, and 520 mg/kg is outside the
-producer's scope. These cases run on signed test credentials in both languages.
-
-## Status
-
-The standards-first evaluator decides requests for all base use cases (reference
-material, calibration, statutory metrology, test reports and GS certification) on signed
-fixtures, in TypeScript with a Python mirror, and is the library's only verifier since
-0.4.0 (the v0.3 graph verifier remains at tag `v0.3.0`). Authorities, keys and grants
-are fictional; no real accreditation or external endorsement is claimed. See
-[status](docs/status.md).
-
-## Run it
-
-Install Node 20, pnpm 10.15.1, Python 3.12 and uv 0.12.17, then:
-
-```bash
-pnpm install --frozen-lockfile
-uv sync --locked --all-packages --extra dev
-pnpm -r build
-pnpm -C packages/core-ts test
-.venv/bin/python -m pytest packages/core-py/tests
-```
-
-Rebuild the demonstrator bundle with `pnpm -C apps/demonstrator build`, and build the
-website with the demonstrator and documentation locally with `pnpm docs:build` (output
-in `_site/`; open `_site/demo/index.html`). More checks are listed in
-[CONTRIBUTING](CONTRIBUTING.md).
-
-## Documentation
-
-| Page | Contents |
-| --- | --- |
-| [Reliance model](docs/model.md) | The rules: carriers, states, gates, authority, scope, support |
-| [Status](docs/status.md) | What runs today, the acceptance ledger and open issues |
-| [Use cases](docs/use-cases.md) | The example scenarios and how to run them |
-| [API](docs/api.md) | The reliance API and the changes from 0.3.0 |
-| [Bindings](docs/bindings.md) | How each credential family is interpreted |
-| [Architecture](docs/architecture.md) | Code layout, gates and TypeScript–Python parity |
-
-Project records: [acceptance ledger](docs/acceptance-ledger.csv),
-[architecture decisions](docs/adrs/README.md) and [changelog](CHANGELOG.md).
+copyright notice reads "VC4QI Contributors" (see [NOTICE](NOTICE)). Citation is
+requested, not required by the licenses.
 
 ## License
 
-Code: [Apache-2.0](LICENSE), the unmodified text of
-<https://www.apache.org/licenses/LICENSE-2.0>. Documentation: [CC BY 4.0](LICENSE-docs).
-Attribution notices are in [NOTICE](NOTICE).
+Code is licensed under [Apache-2.0](LICENSE); documentation is licensed under
+[CC BY 4.0](LICENSE-docs). Attribution notices are in [NOTICE](NOTICE).

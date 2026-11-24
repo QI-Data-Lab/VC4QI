@@ -50,11 +50,11 @@ expanded uncertainty with k = 2); see [bindings](bindings.md#quantity-values-ptb
 520 mg/kg lies inside A but outside O. The certificate draws its authority from O, and
 the parent never rescues the child.
 
-The [demonstrator](https://monavari.github.io/VC4QI/demo/examples/#rm) runs exactly these cases
+The [demonstrator](https://qi-data-lab.github.io/VC4QI/demo/examples/#rm) runs exactly these cases
 in the browser with the same evaluator, and adds a tamper test and a withheld study. Its
 DCC, GS and DPP tabs do the same for the calibration and GS bindings, and the
-[GS story](https://monavari.github.io/VC4QI/demo/gs/) puts the GS chain on an actor board. The
-[RM story](https://monavari.github.io/VC4QI/demo/rm/) draws this chain top to bottom and
+[GS story](https://qi-data-lab.github.io/VC4QI/demo/gs/) puts the GS chain on an actor board. The
+[RM story](https://qi-data-lab.github.io/VC4QI/demo/rm/) draws this chain top to bottom and
 plays scenarios on it: verifiers with different roots, a suspended accreditation asked
 about today or at issuance, an expired certificate, a withdrawn study, an edited value,
 and certificates you sign yourself.
