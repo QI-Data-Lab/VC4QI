@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- **Fork repository and Pages links.** README, documentation, site navigation, citation
+  metadata and QR assets now point to `QI-Data-Lab/VC4QI` and
+  `qi-data-lab.github.io/VC4QI`.
 - **Website, phase 1: fixes, a demonstrator overview and a Cite page.** `demo/` is now an
   overview that explains the RM story, the GS story and the four examples, with direct
   links to each case; the four-case tool moved to `demo/examples/` (old `demo/#rm`
@@ -42,7 +45,7 @@
   for the RM story, the GS story and the examples, the six questions in one row, status
   and links side by side; phones keep one column. Its QR code
   (`site/assets/qr-demo.svg`, made with segno 1.6.6) encodes
-  `https://monavari.github.io/VC4QI/demo/rm/`. `demo/` without an example in its
+  `https://qi-data-lab.github.io/VC4QI/demo/rm/`. `demo/` without an example in its
   address opens the RM story too; `demo/#rm` and the other example addresses stay on the
   examples page. The poster QR code and its `site/m375a/` redirect (to `demo/#rm`) stay.
   The status text drops the stale API switch.

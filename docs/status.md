@@ -21,7 +21,7 @@ accreditation or external endorsement is claimed.
 
 The v0.3 graph verifier, its fixtures, the selective-disclosure path and the legacy
 graph-explorer demo were removed in 0.4.0; tag
-[`v0.3.0`](https://github.com/monavari/VC4QI/tree/v0.3.0) keeps them.
+[`v0.3.0`](https://github.com/QI-Data-Lab/VC4QI/tree/v0.3.0) keeps them.
 
 ## Acceptance ledger
 
@@ -40,7 +40,7 @@ and evidence: **81 passing, 3 excluded as unsupported, 12 not implemented**.
 
 Ledger evidence that cites `evidence.md` refers to the phase log retired in 0.4.0; it
 is at commit
-[`c443978`](https://github.com/monavari/VC4QI/blob/c443978/docs/plans/evidence.md).
+[`c443978`](https://github.com/QI-Data-Lab/VC4QI/blob/c443978/docs/plans/evidence.md).
 
 ## Latest checks
 
